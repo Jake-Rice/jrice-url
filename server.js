@@ -12,11 +12,10 @@ mongo.MongoClient.connect(process.env.MONGODB_URI || 'mongodb://0.0.0.0:27017/jr
     else console.log('Successfully connected to MongoDB');
     database=db;
     
-    app.get('/', function(req, res) {
-      res.type('text/plain');
-      res.send('i am a beautiful butterfly');
-    });
-    
     app.listen(process.env.PORT || 8080);
 });
 
+app.get('/', function(req, res) {
+    res.type('text/plain');
+    res.send('i am a beautiful butterfly');
+});
