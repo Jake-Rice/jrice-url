@@ -5,15 +5,18 @@ require('dotenv').config({
     silent: true
 });
 
+var database;
+
 mongo.MongoClient.connect(process.env.MONGODB_URI || 'mongodb://0.0.0.0:27017/jrice-url', function(err, db) {
-    if (err) throw err;
+    if (err) console.log(err);
     else console.log('Successfully connected to MongoDB');
+    database=db;
     
     app.get('/', function(req, res) {
       res.type('text/plain');
       res.send('i am a beautiful butterfly');
     });
     
-    app.listen(process.env.PORT || 4037);
+    app.listen(process.env.PORT || 8080);
 });
 
