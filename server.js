@@ -5,7 +5,7 @@ require('dotenv').config({
     silent: true
 });
 
-mongo.MongoClient.connect(process.env.MONGOLAB_URI || 'mongodb://0.0.0.0:27017/jrice-url', function(err, db) {
+mongo.MongoClient.connect(process.env.MONGODB_URI || 'mongodb://0.0.0.0:27017/jrice-url', function(err, db) {
     if (err) throw err;
     else console.log('Successfully connected to MongoDB');
     
