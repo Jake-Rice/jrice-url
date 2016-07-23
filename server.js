@@ -15,6 +15,13 @@ mongo.MongoClient.connect(process.env.MONGODB_URI || 'mongodb://0.0.0.0:27017/jr
     app.listen(process.env.PORT || 8080);
 });
 
+app.get('/', function(req, res) {
+    var message="Instructions: Shorten a URL like this: http://jrice-url.herokuapp.com/new/<YOUR_URL_HERE>\nand navigate there like this: http://jrice-url.herokuapp.com/<ID_NUMBER_HERE>";
+    res.type('text/plain');
+    res.send(message);
+    
+});
+
 app.get('/new/:url*', function(req, res) {
     var ts=Date.now();
     var s=req.url.slice(5);
