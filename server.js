@@ -38,7 +38,7 @@ app.get('/:url', function (req, res) {
     var shortid=req.params.url;
     sites.findOne({id:parseInt(shortid)}, function(err, d){
         if (err) throw err;
-        res.redirect("http://"+d['site']);
+        res.redirect(d['site']);
     });
 });
 
